@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 5, 2018 8:12:03 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="model.Orders" table="orders" catalog="demo">
+        <id name="idorders" type="int">
+            <column name="idorders" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="item" class="model.Item" fetch="select">
+            <column name="iditem" />
+        </many-to-one>
+        <many-to-one name="customer" class="model.Customer" fetch="select">
+            <column name="idcustomer" />
+        </many-to-one>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="quantity" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
